@@ -2,11 +2,6 @@ from openai import OpenAI
 from scraper import fetch_website_links, fetch_website_contents
 import json
 
-# Rich Markdown rendering
-from rich.console import Console
-from rich.markdown import Markdown
-
-console = Console()
 
 
 # MODEL CONFIG
@@ -176,8 +171,6 @@ def get_brochure(company_name, url):
 
     result = response.choices[0].message.content
 
-    # Render nicely in terminal
-    console.print(Markdown(result))
 
     # Save to file
     with open("brochure.md", "w", encoding="utf-8") as f:
